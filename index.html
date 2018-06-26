@@ -1,48 +1,50 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>chat-room</title>
-    <link rel="stylesheet" href="css/index.css">
-</head>
-
-<body>
-    <div class="chat-box">
-        <!--聊天框头部-->
-        <div class="chat-header">
-            <div class="button-box">
-                <input type="button" class="log-out" value="退出">
+﻿<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="author" content="Wayou">
+        <meta name="description" content="hichat | a simple chat application built with node.js and websocket">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>hichat</title>
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="banner">
+                <h1>YWwuyi:)</h1>
+                <span id="status"></span>
             </div>
-        </div>
-        <!--聊天框主体-->
-        <div class="chat-body">
-            <!--聊天框左侧-->
-            <div class="chat-body-left">
-                <!--聊天框左侧聊天内容-->
-                <div class="chat-content"></div>
-                <!--聊天框左侧聊天输入框-->
-                <div class="chat-edit">
-                    <input type="text" class="edit-box" placeholder="请输入要发送的信息" maxlength="15"> 
-                    <input type="button" class="edit-button" value="发送">
+            <div id="historyMsg">
+            </div>
+            <div class="controls" >
+                <div class="items">
+                    <input id="colorStyle" type="color" placeHolder='#000' title="font color" />
+                    <input id="emoji" type="button" value="emoji" title="emoji" />
+                    <label for="sendImage" class="imageLable">
+                        <input type="button" value="image"  />
+                        <input id="sendImage" type="file" value="image"/>
+                    </label>
+                    <input id="clearBtn" type="button" value="clear" title="clear screen" />
+                </div>
+                <textarea id="messageInput" placeHolder="enter to send"></textarea>
+                <input id="sendBtn" type="button" value="SEND">
+                <div id="emojiWrapper">
                 </div>
             </div>
-            <!--聊天框右侧-->
-            <div class="chat-body-right">
-                <!--聊天框右侧统计人数-->
-                <div class="online-count">在线:0</div>
-                <!--聊天框右侧用户名-->
-                <div class="user-name">用户名</div>
-                <!--聊天框右侧头像-->
-                <img class="user-img" />
+        </div>
+        <div id="loginWrapper">
+            <p id="info">connecting to server...</p>
+            <div id="nickWrapper">
+                <input type="text" placeHolder="nickname" id="nicknameInput" />
+                <input type="button" value="OK" id="loginBtn" />
             </div>
         </div>
-    </div>
-</body>
-
-<script src="js/socket.io.js"></script>
-<script src="js/index.js"></script>
-
+        
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="scripts/hichat.js"></script>
+        
+    </body>
 </html>
